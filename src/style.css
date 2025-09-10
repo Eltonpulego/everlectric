@@ -7,10 +7,25 @@
     @apply border-gray-200;
   }
   
+  html {
+    @apply bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900;
+    min-height: 100vh;
+  }
+  
   body {
     @apply bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white;
     min-height: 100vh;
     font-family: 'Inter', system-ui, sans-serif;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    background-color: #0f172a;
+    background-image: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+  }
+  
+  #app {
+    @apply bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900;
+    min-height: 100vh;
+    background-attachment: fixed;
   }
 }
 
@@ -72,6 +87,82 @@
 /* Smooth transitions for all interactive elements */
 * {
   transition: all 0.2s ease-in-out;
+}
+
+/* Prevent white flash during fast scrolling */
+* {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+/* Improve scrolling performance */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent layout shifts */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure consistent background coverage */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Prevent white flash during scroll */
+section, div, main, article, aside, header, footer, nav {
+  background-color: transparent;
+}
+
+/* Ensure all sections have proper background */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix for glass components */
+.glass, .glass-strong, .glass-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Additional fixes for white flash prevention */
+* {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Ensure smooth scrolling without white flashes */
+html {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+  background-attachment: fixed;
+}
+
+/* Fix for mobile devices */
+@media (max-width: 768px) {
+  body {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+  }
+}
+
+/* Prevent any white background from showing */
+*:not(.glass):not(.glass-strong):not(.glass-card) {
+  background-color: transparent !important;
 }
 
 /* Focus styles for accessibility */

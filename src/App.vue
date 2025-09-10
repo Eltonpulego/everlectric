@@ -1,5 +1,8 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+  <div class="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative">
+    <!-- Page Loader -->
+    <PageLoader />
+    
     <!-- Navigation -->
     <NavBar />
     
@@ -11,6 +14,9 @@
     
     <!-- Features Section -->
     <FeaturesSection />
+    
+    <!-- Video Section -->
+    <VideoSection />
     
     <!-- Benefits Section -->
     <BenefitsSection />
@@ -49,6 +55,7 @@ import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
 import ServicesSection from './components/ServicesSection.vue'
 import FeaturesSection from './components/FeaturesSection.vue'
+import VideoSection from './components/VideoSection.vue'
 import BenefitsSection from './components/BenefitsSection.vue'
 import TestimonialsSection from './components/TestimonialsSection.vue'
 import PricingCalculator from './components/PricingCalculator.vue'
@@ -59,4 +66,5 @@ import ContactSection from './components/ContactSection.vue'
 import Footer from './components/Footer.vue'
 import ScrollToTop from './components/ScrollToTop.vue'
 import CookieConsent from './components/CookieConsent.vue'
+import PageLoader from './components/PageLoader.vue'
 </script>
